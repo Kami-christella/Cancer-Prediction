@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Make Prediction </title>
+</head>
+<body>
+    <div class="container">
+        <h1>Make Prediction</h1>
+        {{ prediction }}
+        <form action="{% url 'homeFunction' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="radius_mean" placeholder="Enter radius Mean">
+            <input type="text" name="texture_mean" placeholder="Enter texture mean">
+            <input type="text" name="perimeter_mean" placeholder="Enter perimeter mean">
+            <input type="text" name="area_mean" placeholder="Enter area mean">
+            <input type="text" name="smoothness_mean" placeholder="Enter smoothness mean">
+            <input type="text" name="compactness_mean" placeholder="Enter your compactness  meant">
+            <input type="text" name="concavity_mean" placeholder="Enter concavity mean">
+            <input type="text" name="concave_points_mean" placeholder="Enter concave points mean">
+            <input type="text" name="symmetry_mean" placeholder="Enter symmetry mean">
+            <input type="text" name="fractal_dimension_mean" placeholder="Enter fractal dimension mean">
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
